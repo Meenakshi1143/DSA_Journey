@@ -1,3 +1,4 @@
+
 #Question 1: Student Marks Manager
 
 marks = []
@@ -33,7 +34,7 @@ print(f"Ascending order: {numbers}")
 numbers.reverse()
 print(f"Descending order: {numbers}")
 
-num = int(input("Enter a number to num: "))
+num = int(input("Enter a number: "))
 
 if num in numbers:
     print(f"{num} is found in the list")
@@ -71,3 +72,54 @@ numbers.clear()
 
 print(f"Original list: {numbers}")
 print(f"Backup list: {backup}")
+
+
+#Question 4: Unique Name Manager
+
+names = ["Asha", "Rahul", "Asha", "John", "Rahul"] 
+n = set(names)
+#print(type(n))
+n.add("Meera")
+n.update(["Arun","Priya"])
+if "John" in n:
+    n.remove("John")
+n.discard("David")
+for name in n:
+    print(name)
+
+
+#Question 5: Course Student Comparison
+
+python_students = {"Asha", "Rahul", "John", "Meera"}
+da_students = {"Rahul", "Meera", "Arun"}
+union_ = python_students.union(da_students)
+intersection_ = python_students.intersection(da_students)
+diff_ = python_students.difference(da_students)
+symDiff_ = python_students.symmetric_difference(da_students)
+sub_ = da_students.issubset(python_students)
+super_ = python_students.issuperset(da_students)
+disJoint_ = python_students.isdisjoint(da_students)
+print(union_,intersection_, diff_, symDiff_, sub_, super_, disJoint_, sep ="\n")
+
+print("-----Students from both courses-----")
+for students in union_ :
+    print(students)
+print("-----Students learning both courses-----")
+for students in intersection_:
+    print(students)
+print("-----Students learning only Python-----")
+for students in diff_ :
+    print(students)
+print("-----Students learning only one of the courses-----")
+for students in symDiff_:
+    print(students)
+
+print("\nIs DA a subset of Python: ", sub_)
+
+print("Is Python a superset of DA: ", super_)
+
+print("Are Python and DA disjoint: ", disJoint_)
+
+
+
+
