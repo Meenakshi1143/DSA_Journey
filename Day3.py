@@ -62,7 +62,6 @@ def add(*a):
 print(add(2, 3, 4))
 print(add(2, 'codegnan', 3, 4))
 
-'''
 
 #Keyword arguments - we can pass the name for the arguments
 #def batch(name, age, place):
@@ -93,4 +92,125 @@ data = {
     }
 data.update({'Batch' : 'PFS-VSP-004'})
 batch(**data)
-    
+
+'''
+#Task: Create a function using *args and **kwargs
+
+def shopping_cart(*items, **details):
+    print("Items:")
+    for item in items:
+        print(item)
+
+    print("\nOrder Details:")
+    for key, value in details.items():
+        print(key, ":", value)
+
+
+shopping_cart(
+    "Laptop",
+    "Mouse",
+    "Keyboard",
+    customer=input("Enter Customer Name: "),
+    city=input("City: " ),
+    payment=input("Payment Mode: ")
+)
+
+
+
+
+#task
+#Creat a function withe usage of *args & **Kwargs with real time secenrio
+
+def student_marks(*args, **kwargs):
+    """Here takes student name marks and college and bank detals"""
+    for student in args:
+        print("Name:", student[0])
+        print("Python:", student[1])
+        print("SQL:", student[2])
+        print("Java:", student[3])
+        print()
+
+    print("College:", kwargs["college"])
+    print("Branch:", kwargs["branch"])
+
+
+student_marks(
+    ("Lavanya", 85, 90, 80),
+    ("Likhitha", 90, 88, 85),
+    college="Amrutha College",
+    branch="Computer Science"
+)
+
+
+
+# Task
+# Create a function with usage of *args & **kwargs
+# Real-time scenario: Shopping Order Management
+
+def shopping_details(*args, **kwargs):
+    """Takes product details and customer/order details"""
+
+    for product in args:
+        print("Product:", product[0])
+        print("Quantity:", product[1])
+        print("Price:", product[2])
+        print("Category:", product[3])
+        print()
+
+    print("Customer:", kwargs["customer"])
+    print("Place:", kwargs["place"])
+    print("Payment:", kwargs["payment"])
+
+
+shopping_details(
+    ("Laptop", 1, 55000, "Electronics"),
+    ("Mouse", 2, 800, "Accessories"),
+    ("Keyboard", 1, 1500, "Accessories"),
+    customer="Meena",
+    place="Vizag",
+    payment="UPI"
+)
+
+
+# Task
+# Create a function with usage of *args & **kwargs
+# Real-time scenario: Shopping Order Management
+
+def shopping_details(*args, **kwargs):
+    """Takes product details and customer/order details"""
+
+    for product in args:
+        print("Product:", product[0])
+        print("Quantity:", product[1])
+        print("Price:", product[2])
+        print("Category:", product[3])
+        print()
+
+    print("Customer:", kwargs["customer"])
+    print("Place:", kwargs["place"])
+    print("Payment:", kwargs["payment"])
+
+
+n = int(input("Enter number of products: "))
+
+products = []
+
+for i in range(n):
+    product = input("Enter product name: ")
+    quantity = int(input("Enter quantity: "))
+    price = float(input("Enter price: "))
+    category = input("Enter category: ")
+
+    products.append((product, quantity, price, category))
+
+
+customer = input("Enter customer name: ")
+place = input("Enter place: ")
+payment = input("Enter payment method: ")
+
+shopping_details(
+    *products,
+    customer=customer,
+    place=place,
+    payment=payment
+)
